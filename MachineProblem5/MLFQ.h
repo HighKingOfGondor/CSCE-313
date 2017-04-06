@@ -11,8 +11,6 @@
 #include <queue>
 using namespace std;
 
-//The defined Macro values here can be changed by you for testing your program
-//But when you turn in the project, make sure you do change them back to these values!!!
 #define LEVEL1_CAPACITY	20
 #define LEVEL2_CAPACITY	20
 #define LEVEL3_CAPACITY	20
