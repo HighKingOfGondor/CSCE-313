@@ -8,13 +8,6 @@
 #include "Process.h"
 //RoundRobin Scheduler
 
-//You can try 3 different approaches to change time_quantum 
-//as the CPU keeps working
-/*
-1. use the least execution time of a certain process as the time quantum
-2. Always use the greatest common dividor as the time quantum
-3. Use a constant
-*/
 class RoundRobin : Scheduler{
 private:
 	int time_quantum;
