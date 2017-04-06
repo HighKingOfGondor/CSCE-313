@@ -1,9 +1,5 @@
 #include "Process.h"
 
-//Constructor
-/*
-initialize everything to 0
-*/
 Process::Process() {
     pid = 0;
     arrival_time = 0;
@@ -13,7 +9,6 @@ Process::Process() {
 }
 
 //Constructor
-//make sure set isCompleted to false
 Process::Process(int pid_, int arrival_time_, int cpu_burst_time_) {
     pid = pid_;
     arrival_time = arrival_time_;
@@ -23,7 +18,6 @@ Process::Process(int pid_, int arrival_time_, int cpu_burst_time_) {
 }
 
 //Copy Construcor
-//Construct it with pid, arrival_time, cpu_burst_time, remaining_time and isCompleted
 Process::Process(const Process &p){
     pid = p.pid;
     arrival_time = p.arrival_time;
@@ -32,7 +26,6 @@ Process::Process(const Process &p){
     isCompleted = p.isCompleted;
 }
 
-//Every time, When your process is runing, use this function to update 
 //the remaining time and monitor if the process is done or not
 void Process::Run(int run_time) {
     //actually system time?
@@ -65,15 +58,11 @@ void Process::change_arrival_time(int new_arrival_time) {
     arrival_time = new_arrival_time;
 }
 
-//This function might be used in MLFQ implementation since you need to put 
-//undone process from other levels to last level, you may want to update 
-//remaining time for them.
 void Process::update_remaining_time(int updated_remaining_time){
     remaining_time = updated_remaining_time;
 }
 
 //Assignment Operator Overloading
-//make sure do the assignment for pid, arrival_time, cpu_burst_time, remaining_time and isCompleted
 Process & Process::operator=(const Process & p)
 {
     pid = p.pid;
