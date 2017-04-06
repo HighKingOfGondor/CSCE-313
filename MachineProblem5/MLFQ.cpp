@@ -1,10 +1,5 @@
 #include "MLFQ.h"
-
-//The goal of this function is to fill the 4 levels with process_info
-//You should sort the process_info by the arrival_time of the Process;
 //Process with smaller arrival time will have smaller index in the vector
-
-//After filling in the top 3 levels, then do insertion for the fcfs level
 MLFQ::MLFQ(string file){
     extractProcessInfo(file);
     sort(begin(process_info), end(process_info), [](ProcessInfo const &t1, ProcessInfo const &t2) {
@@ -40,16 +35,6 @@ void MLFQ::update_last_process_fcfs(Process process_to_fcfs) {
     last_process_fcfs = process_to_fcfs;
 }
 
-//This function has the following assumptions:
-/*
-	1. The start_level is not equal goal_level;
-	2. goal_level is larger then start_level
-	3. When you use this function, you should know the process should not jump from level 0 to level 2 or 3 if the level 1 has a space there.
- Generally, when you degrade a process, it tries to go to the level below by one level and if that level is full, it will keep going down
- until it finds a level which has space there.
-	4. Successful jump will return 1, else 0
-	5. To successfully jump to the goal_level, the process must go to the end of the vector corresponding to goal_level
- */
 //start_level is the level the process is located at, it is one value of 0 , 1, 2;
 //pos is its index in the vector
 //goal_level is the level it tries to enter
@@ -72,8 +57,6 @@ int MLFQ::level_jump(shared_ptr<Process> p, unsigned int start_level, unsigned i
  */
 
 //pos is the index of the process in the vector
-//Your goal is to degrade this process by one level
-//You can use level_jump() function here based on which level the process is going to jump
 void MLFQ::degrade_process(shared_ptr<Process> p, unsigned int level, unsigned int pos) {
     bool foundSpot = false;
     unsigned int nextLevel = level + 1;
@@ -106,10 +89,6 @@ int MLFQ::returnQuantum(int i) {
     else return 0;
 }
 
-/*
- You can use multiple loops here to do the job based on the document;
- Make sure print out the timing information correctly
- */
 void MLFQ::schedule_tasks(){
     int sys_time = 0;
     int i = 0;
