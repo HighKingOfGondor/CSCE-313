@@ -1,9 +1,6 @@
 #include "FCFS.h"
 using namespace std;
 
-//Use Base class's function to extract process information from file
-//And fill in the fcfs_queue; the priority in this queue is the arrival time;
-//Make sure you did the ArrivalEarlierThan Comparator
 FCFS::FCFS(string file)
 {
     extractProcessInfo(file);
