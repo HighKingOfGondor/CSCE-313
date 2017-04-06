@@ -5,7 +5,7 @@
 #include <getopt.h>
 #include <iostream>
 using namespace std;
-//Example is from this website: https://codeyarns.com/2015/01/30/how-to-parse-program-options-in-c-using-getopt_long/
+
 unsigned int quantum = 0;
 string policy = "";
 string input_file = "";
